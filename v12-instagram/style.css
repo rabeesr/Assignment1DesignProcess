@@ -1,0 +1,303 @@
+/* ===== V12 — InstaGrid (Instagram/Social Media) ===== */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #262626;
+    background: #FAFAFA;
+}
+
+/* ---- Feed Container ---- */
+
+.feed-container {
+    max-width: 470px;
+    margin: 0 auto;
+    padding: 0 0 40px;
+}
+
+/* ---- Top Navigation ---- */
+
+.top-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: #fff;
+    border-bottom: 1px solid #dbdbdb;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.back-link {
+    color: #262626;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: #E1306C;
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: 700;
+    background: linear-gradient(45deg, #F77737, #E1306C, #833AB4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ---- Stories Row ---- */
+
+.stories-row {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    background: #fff;
+    border-bottom: 1px solid #dbdbdb;
+    overflow-x: auto;
+}
+
+.story-circle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.story-border {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #FCAF45, #F77737, #E1306C, #833AB4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+}
+
+.story-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    color: #262626;
+    border: 2px solid #fff;
+}
+
+.story-label {
+    font-size: 11px;
+    color: #262626;
+    max-width: 64px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ---- Post Card ---- */
+
+.post-card {
+    background: #fff;
+    border-bottom: 1px solid #dbdbdb;
+    margin-top: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.3s ease;
+}
+
+.post-card:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* ---- Post Header ---- */
+
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+}
+
+.avatar-ring {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #FCAF45, #F77737, #E1306C, #833AB4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    flex-shrink: 0;
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    color: #262626;
+    border: 1.5px solid #fff;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.username {
+    font-weight: 600;
+    font-size: 14px;
+    color: #262626;
+}
+
+.subtitle {
+    font-size: 12px;
+    color: #8e8e8e;
+}
+
+/* ---- Post Image ---- */
+
+.post-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.post-image .initial {
+    font-size: 120px;
+    font-weight: 800;
+    color: #fff;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    letter-spacing: -4px;
+}
+
+/* Anime gradients */
+.bg-anime {
+    background: linear-gradient(135deg, #F77737 0%, #E1306C 50%, #833AB4 100%);
+}
+
+.bg-jjk {
+    background: linear-gradient(135deg, #833AB4 0%, #E1306C 50%, #405DE6 100%);
+}
+
+/* Comedy gradients */
+.bg-simpsons {
+    background: linear-gradient(135deg, #FCAF45 0%, #F77737 100%);
+}
+
+.bg-familyguy {
+    background: linear-gradient(135deg, #405DE6 0%, #5851DB 50%, #833AB4 100%);
+}
+
+.bg-southpark {
+    background: linear-gradient(135deg, #E1306C 0%, #F77737 100%);
+}
+
+.bg-bobs {
+    background: linear-gradient(135deg, #F77737 0%, #FCAF45 100%);
+}
+
+.bg-rickmorty {
+    background: linear-gradient(135deg, #5851DB 0%, #405DE6 50%, #2EC4B6 100%);
+}
+
+/* ---- Post Actions ---- */
+
+.post-actions {
+    display: flex;
+    gap: 16px;
+    padding: 10px 16px 6px;
+}
+
+.action-icon {
+    font-size: 22px;
+    color: #262626;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+    user-select: none;
+}
+
+.action-icon.heart:hover {
+    color: #ED4956;
+    transform: scale(1.15);
+}
+
+.action-icon:hover {
+    transform: scale(1.1);
+}
+
+/* ---- Post Likes ---- */
+
+.post-likes {
+    padding: 2px 16px 4px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #262626;
+}
+
+/* ---- Post Caption ---- */
+
+.post-caption {
+    padding: 2px 16px 6px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #262626;
+}
+
+.caption-user {
+    font-weight: 600;
+}
+
+/* ---- Post Tags (Hashtag-style ratings) ---- */
+
+.post-tags {
+    padding: 4px 16px 14px;
+    font-size: 13px;
+    color: #8e8e8e;
+    line-height: 1.8;
+    letter-spacing: 0.2px;
+}
+
+/* ---- Scrollbar for stories ---- */
+
+.stories-row::-webkit-scrollbar {
+    display: none;
+}
+
+.stories-row {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 470px) {
+    .feed-container {
+        max-width: 100%;
+    }
+}
