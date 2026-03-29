@@ -1,0 +1,556 @@
+/* ============================================
+   V6: THE CONSTRUCT — Matrix Style
+   ============================================ */
+
+/* --- Reset & Base --- */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000000;
+    color: #00FF41;
+    font-family: "Courier New", "Lucida Console", monospace;
+    letter-spacing: 0.05em;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* --- Scanlines Overlay --- */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.15) 2px,
+        rgba(0, 0, 0, 0.15) 4px
+    );
+}
+
+/* --- CRT Wrapper & Vignette --- */
+.crt-wrapper {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 30px;
+    box-shadow:
+        inset 0 0 120px rgba(0, 0, 0, 0.9),
+        inset 0 0 60px rgba(0, 0, 0, 0.6);
+}
+
+/* --- Digital Rain --- */
+.rain {
+    position: fixed;
+    top: -100%;
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: 14px;
+    color: #00FF41;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 5;
+    white-space: nowrap;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    letter-spacing: 0.3em;
+}
+
+.rain::before {
+    display: block;
+}
+
+.rain-1 {
+    left: 5%;
+    animation: digitalRain 8s linear infinite;
+    animation-delay: 0s;
+}
+.rain-1::before {
+    content: "0 1 0 0 1 ネ オ 1 0 1 1 0";
+}
+
+.rain-2 {
+    left: 15%;
+    animation: digitalRain 10s linear infinite;
+    animation-delay: -2s;
+}
+.rain-2::before {
+    content: "1 1 0 1 0 マ ト 0 1 0 0 1";
+}
+
+.rain-3 {
+    left: 30%;
+    animation: digitalRain 7s linear infinite;
+    animation-delay: -4s;
+}
+.rain-3::before {
+    content: "0 1 1 0 1 リ ク ス 0 1 0";
+}
+
+.rain-4 {
+    left: 50%;
+    animation: digitalRain 12s linear infinite;
+    animation-delay: -1s;
+}
+.rain-4::before {
+    content: "1 0 0 1 1 0 デ ー タ 1 0 0";
+}
+
+.rain-5 {
+    left: 65%;
+    animation: digitalRain 9s linear infinite;
+    animation-delay: -3s;
+}
+.rain-5::before {
+    content: "0 1 0 1 0 1 コ ー ド 0 1";
+}
+
+.rain-6 {
+    left: 78%;
+    animation: digitalRain 11s linear infinite;
+    animation-delay: -5s;
+}
+.rain-6::before {
+    content: "1 0 1 0 0 シ ス テ ム 1 0";
+}
+
+.rain-7 {
+    left: 88%;
+    animation: digitalRain 8.5s linear infinite;
+    animation-delay: -6s;
+}
+.rain-7::before {
+    content: "0 0 1 1 0 ハ ッ ク 1 0 1 0";
+}
+
+.rain-8 {
+    left: 95%;
+    animation: digitalRain 10.5s linear infinite;
+    animation-delay: -7s;
+}
+.rain-8::before {
+    content: "1 0 1 ア ク セ ス 0 1 0 1 1";
+}
+
+@keyframes digitalRain {
+    0% {
+        top: -100%;
+        opacity: 0;
+    }
+    5% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.15;
+    }
+    95% {
+        opacity: 0.05;
+    }
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+/* --- Glitch Effect on Title --- */
+@keyframes glitch {
+    0% {
+        text-shadow: 2px 0 #ff0000, -2px 0 #0000ff;
+        clip-path: inset(0 0 0 0);
+    }
+    5% {
+        text-shadow: -2px 2px #ff0000, 2px -2px #0000ff;
+        clip-path: inset(20% 0 40% 0);
+    }
+    10% {
+        text-shadow: 2px -2px #ff0000, -2px 2px #0000ff;
+        clip-path: inset(60% 0 10% 0);
+    }
+    15% {
+        text-shadow: 0 0 #ff0000, 0 0 #0000ff;
+        clip-path: inset(0 0 0 0);
+    }
+    50% {
+        text-shadow: 0 0 #ff0000, 0 0 #0000ff;
+        clip-path: inset(0 0 0 0);
+    }
+    51% {
+        text-shadow: 3px 0 #ff0000, -3px 0 #0000ff;
+        clip-path: inset(40% 0 30% 0);
+    }
+    53% {
+        text-shadow: -1px 1px #ff0000, 1px -1px #0000ff;
+        clip-path: inset(10% 0 70% 0);
+    }
+    55% {
+        text-shadow: 0 0 #ff0000, 0 0 #0000ff;
+        clip-path: inset(0 0 0 0);
+    }
+    100% {
+        text-shadow: 0 0 #ff0000, 0 0 #0000ff;
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+/* Glitch duplicate layers using pseudo-elements */
+.glitch {
+    position: relative;
+    display: inline-block;
+    animation: glitch 4s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.glitch::before {
+    color: #00FF41;
+    text-shadow: 2px 0 #ff0000;
+    animation: glitchBefore 4s infinite;
+}
+
+.glitch::after {
+    color: #00FF41;
+    text-shadow: -2px 0 #0000ff;
+    animation: glitchAfter 4s infinite;
+}
+
+@keyframes glitchBefore {
+    0%, 15%, 55%, 100% {
+        clip-path: inset(0 0 0 0);
+        transform: translateX(0);
+    }
+    5% {
+        clip-path: inset(20% 0 50% 0);
+        transform: translateX(-3px);
+    }
+    10% {
+        clip-path: inset(60% 0 5% 0);
+        transform: translateX(3px);
+    }
+    51% {
+        clip-path: inset(30% 0 40% 0);
+        transform: translateX(2px);
+    }
+    53% {
+        clip-path: inset(5% 0 80% 0);
+        transform: translateX(-2px);
+    }
+}
+
+@keyframes glitchAfter {
+    0%, 15%, 55%, 100% {
+        clip-path: inset(0 0 0 0);
+        transform: translateX(0);
+    }
+    5% {
+        clip-path: inset(50% 0 20% 0);
+        transform: translateX(3px);
+    }
+    10% {
+        clip-path: inset(5% 0 60% 0);
+        transform: translateX(-3px);
+    }
+    51% {
+        clip-path: inset(40% 0 30% 0);
+        transform: translateX(-2px);
+    }
+    53% {
+        clip-path: inset(80% 0 5% 0);
+        transform: translateX(2px);
+    }
+}
+
+/* --- Blinking Cursor --- */
+@keyframes blink {
+    0%, 49% {
+        opacity: 1;
+    }
+    50%, 100% {
+        opacity: 0;
+    }
+}
+
+.cursor::after {
+    content: "\2588";
+    color: #00FF41;
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
+}
+
+/* --- Back Link --- */
+.back-link {
+    margin-bottom: 30px;
+}
+
+.back-link a {
+    color: #008F11;
+    text-decoration: none;
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.back-link a:hover {
+    color: #00FF41;
+    text-shadow: 0 0 8px #00FF41;
+}
+
+/* --- Header --- */
+.main-header {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.system-msg {
+    color: #003B00;
+    font-size: 0.8rem;
+    margin-bottom: 4px;
+    letter-spacing: 0.1em;
+}
+
+.main-header h1 {
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #00FF41;
+    text-shadow: 0 0 20px #00FF41, 0 0 40px #008F11;
+    margin: 20px 0 15px;
+    letter-spacing: 0.15em;
+}
+
+.subtitle {
+    color: #00FF41;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+}
+
+.subtitle-sm {
+    color: #008F11;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+}
+
+/* --- Divider --- */
+.divider {
+    border: none;
+    border-top: 1px dashed #003B00;
+    margin: 40px 0;
+}
+
+/* --- Series Block --- */
+.series-block {
+    margin-bottom: 10px;
+}
+
+.series-heading {
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #00FF41;
+    text-shadow: 0 0 10px #008F11;
+    margin-bottom: 5px;
+    letter-spacing: 0.08em;
+}
+
+.series-status {
+    color: #003B00;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 25px;
+}
+
+/* --- Dossier Card --- */
+.dossier {
+    border: 1px solid #003B00;
+    margin-bottom: 25px;
+    background-color: rgba(0, 59, 0, 0.08);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.dossier:hover {
+    border-color: #00FF41;
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.1), inset 0 0 30px rgba(0, 255, 65, 0.03);
+}
+
+.dossier-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 15px;
+    border-bottom: 1px dashed #003B00;
+    background-color: rgba(0, 59, 0, 0.15);
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.file-tag {
+    color: #008F11;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+}
+
+.file-name {
+    color: #00FF41;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+}
+
+.file-status {
+    color: #003B00;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.dossier-body {
+    display: flex;
+    padding: 20px 15px;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* --- Avatar Box --- */
+.avatar-box {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    border: 1px solid #00FF41;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 255, 65, 0.03);
+}
+
+.avatar-initial {
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #00FF41;
+    text-shadow: 0 0 10px #00FF41;
+}
+
+/* --- Dossier Info --- */
+.dossier-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.char-name {
+    font-family: "Courier New", "Lucida Console", monospace;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #00FF41;
+    margin-bottom: 4px;
+    letter-spacing: 0.08em;
+}
+
+.char-series {
+    color: #008F11;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.char-bio {
+    color: #008F11;
+    font-size: 0.8rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    letter-spacing: 0.03em;
+}
+
+/* --- Stats --- */
+.stats {
+    border-top: 1px dashed #003B00;
+    padding-top: 10px;
+}
+
+.stat-label {
+    color: #003B00;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 5px;
+}
+
+.stat-row {
+    color: #00FF41;
+    font-size: 0.8rem;
+    font-family: "Courier New", "Lucida Console", monospace;
+    letter-spacing: 0.05em;
+    line-height: 1.8;
+}
+
+/* --- Footer --- */
+.terminal-footer {
+    text-align: left;
+    padding: 20px 0;
+}
+
+.terminal-footer p {
+    color: #003B00;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+}
+
+.terminal-footer p:last-child {
+    color: #008F11;
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+    .crt-wrapper {
+        padding: 20px 15px;
+    }
+
+    .main-header h1 {
+        font-size: 2rem;
+    }
+
+    .dossier-body {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dossier-info {
+        width: 100%;
+    }
+
+    .avatar-box {
+        width: 60px;
+        height: 60px;
+    }
+
+    .avatar-initial {
+        font-size: 2rem;
+    }
+
+    .series-heading {
+        font-size: 0.95rem;
+    }
+
+    .rain {
+        font-size: 10px;
+    }
+}

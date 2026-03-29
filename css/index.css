@@ -1,0 +1,239 @@
+/* ===== Reset & Base ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: #0f0f1a;
+  color: #e0e0e0;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===== Hero ===== */
+.hero {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  padding: 5rem 2rem 4rem;
+  text-align: center;
+  border-bottom: 3px solid #e94560;
+}
+
+.hero-content {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.badge {
+  display: inline-block;
+  background: #e94560;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 0.35rem 1rem;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1rem;
+  line-height: 1.15;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  color: #a0a0b8;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* ===== Process Intro ===== */
+.process-intro {
+  max-width: 750px;
+  margin: 3rem auto 2rem;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.process-intro h2 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.process-intro p {
+  color: #8888a0;
+  font-size: 0.95rem;
+}
+
+/* ===== Gallery Grid ===== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto 4rem;
+  padding: 0 2rem;
+}
+
+/* ===== Cards ===== */
+.card {
+  display: flex;
+  flex-direction: column;
+  background: #1a1a2e;
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid #2a2a40;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  border-radius: 12px 12px 0 0;
+  transition: height 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.card:hover::before {
+  height: 6px;
+}
+
+.card-version {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+  opacity: 0.6;
+}
+
+.card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.card-desc {
+  font-size: 0.88rem;
+  color: #8888a0;
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+  line-height: 1.65;
+}
+
+.card-cta {
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: letter-spacing 0.3s ease;
+}
+
+.card:hover .card-cta {
+  letter-spacing: 1px;
+}
+
+/* ===== Per-Card Accent Colors ===== */
+
+/* V1 Simpsons — Yellow */
+.card-v1::before { background: #FFD90F; }
+.card-v1:hover { border-color: #FFD90F; }
+.card-v1 .card-cta { color: #FFD90F; }
+
+/* V2 Family Guy — Green */
+.card-v2::before { background: #2D8C3C; }
+.card-v2:hover { border-color: #2D8C3C; }
+.card-v2 .card-cta { color: #2D8C3C; }
+
+/* V3 Anime — Pink-Teal Gradient */
+.card-v3::before { background: linear-gradient(90deg, #FF6B6B, #4ECDC4); }
+.card-v3:hover { border-color: #FF6B6B; }
+.card-v3 .card-cta { color: #FF6B6B; }
+
+/* V4 DC — Gold */
+.card-v4::before { background: #F5C518; }
+.card-v4:hover { border-color: #F5C518; }
+.card-v4 .card-cta { color: #F5C518; }
+
+/* V5 Marvel — Red */
+.card-v5::before { background: #ED1D24; }
+.card-v5:hover { border-color: #ED1D24; }
+.card-v5 .card-cta { color: #ED1D24; }
+
+/* V6 Matrix — Green */
+.card-v6::before { background: #00FF41; }
+.card-v6:hover { border-color: #00FF41; }
+.card-v6 .card-cta { color: #00FF41; }
+
+/* V7 Reddit — Orange */
+.card-v7::before { background: #FF4500; }
+.card-v7:hover { border-color: #FF4500; }
+.card-v7 .card-cta { color: #FF4500; }
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: #555;
+  font-size: 0.8rem;
+  border-top: 1px solid #1a1a2e;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .hero {
+    padding: 3.5rem 1.5rem 3rem;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    padding: 0 1.25rem;
+  }
+}
+
+/* ===== Page Load Animation ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeInUp 0.5s ease backwards;
+}
+
+.card-v1 { animation-delay: 0.05s; }
+.card-v2 { animation-delay: 0.1s; }
+.card-v3 { animation-delay: 0.15s; }
+.card-v4 { animation-delay: 0.2s; }
+.card-v5 { animation-delay: 0.25s; }
+.card-v6 { animation-delay: 0.3s; }
+.card-v7 { animation-delay: 0.35s; }
