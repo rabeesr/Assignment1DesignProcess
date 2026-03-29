@@ -1,0 +1,346 @@
+/* ============================================
+   V21 — Spotify + Instagram Cards + Card-Flip
+   Spotify dark layout, Instagram post cards,
+   Family Guy flip-on-hover mechanic
+   ============================================ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --green: #1DB954;
+    --black: #191414;
+    --dark-gray: #282828;
+    --gray-text: #B3B3B3;
+    --white: #FFFFFF;
+    --row-hover: #333333;
+    --sidebar-width: 240px;
+    --now-playing-height: 90px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--black);
+    color: var(--gray-text);
+    min-height: 100vh;
+    display: flex;
+}
+
+/* ---- Sidebar (Spotify) ---- */
+.sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    width: var(--sidebar-width);
+    height: calc(100vh - var(--now-playing-height));
+    background-color: #000000;
+    padding: 24px 16px;
+    overflow-y: auto;
+    z-index: 10;
+}
+
+.sidebar-logo {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 28px; padding: 0 8px;
+}
+
+.logo-icon { font-size: 28px; color: var(--green); }
+.logo-text { font-size: 20px; font-weight: 700; color: var(--white); letter-spacing: -0.5px; }
+
+.sidebar-nav { list-style: none; margin-bottom: 8px; }
+.sidebar-nav li { margin-bottom: 4px; }
+
+.nav-link {
+    display: block; padding: 8px 12px;
+    color: var(--gray-text); text-decoration: none;
+    font-size: 14px; font-weight: 600; border-radius: 4px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+.nav-link:hover { color: var(--white); }
+.nav-link.active { color: var(--white); background-color: var(--dark-gray); }
+
+.back-link { color: var(--green); font-weight: 700; margin-bottom: 8px; }
+.back-link:hover { color: #1ed760; background-color: rgba(29,185,84,0.1); }
+
+.sidebar-divider { height: 1px; background-color: var(--dark-gray); margin: 16px 0; }
+
+.sidebar-heading {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1.5px; color: var(--gray-text); padding: 8px 12px 4px;
+}
+
+.sidebar-playlists { list-style: none; margin-bottom: 16px; }
+.sidebar-playlists li { margin-bottom: 2px; }
+
+.playlist-link {
+    display: block; padding: 6px 12px;
+    color: var(--gray-text); text-decoration: none;
+    font-size: 13px; border-radius: 4px;
+    transition: color 0.2s ease;
+}
+.playlist-link:hover { color: var(--white); }
+
+/* ---- Main Content ---- */
+.main-content {
+    margin-left: var(--sidebar-width);
+    flex: 1; padding: 0 32px 32px;
+    min-height: 100vh;
+    padding-bottom: calc(var(--now-playing-height) + 32px);
+}
+
+/* ---- Page Header (Spotify) ---- */
+.page-header {
+    display: flex; align-items: flex-end; gap: 24px;
+    padding: 60px 0 32px;
+    background: linear-gradient(180deg, #1a3a2a 0%, var(--black) 100%);
+    margin: 0 -32px; padding-left: 32px; padding-right: 32px;
+}
+
+.header-art {
+    width: 192px; height: 192px;
+    background: linear-gradient(135deg, var(--green), #191414);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+.header-icon { font-size: 72px; color: var(--white); opacity: 0.9; }
+.header-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--white); margin-bottom: 8px; }
+.header-title { font-size: 48px; font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 12px; letter-spacing: -1px; }
+.header-meta { font-size: 14px; color: var(--gray-text); }
+
+/* ---- Section Groups ---- */
+.section-group { margin-top: 40px; }
+
+.section-title {
+    font-size: 24px; font-weight: 700; color: var(--white);
+    margin-bottom: 20px; padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+/* ---- Card Grid ---- */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+/* ---- Flip Card (Family Guy mechanic) ---- */
+.flip-card {
+    perspective: 900px;
+    height: 440px;
+}
+
+.flip-card-inner {
+    position: relative; width: 100%; height: 100%;
+    transition: transform 0.6s ease;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* ---- Front: Instagram Post Card ---- */
+.flip-card-front {
+    background: var(--dark-gray);
+}
+
+.post-header {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 14px;
+}
+
+.avatar-ring {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: linear-gradient(45deg, #FCAF45, #F77737, #E1306C, #833AB4);
+    display: flex; align-items: center; justify-content: center;
+    padding: 2px; flex-shrink: 0;
+}
+
+.avatar {
+    width: 100%; height: 100%; border-radius: 50%;
+    background: var(--dark-gray);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 14px; color: var(--white);
+    border: 1.5px solid var(--dark-gray);
+}
+
+.user-info { display: flex; flex-direction: column; }
+.username { font-weight: 600; font-size: 13px; color: var(--white); }
+.user-series { font-size: 11px; color: var(--gray-text); }
+
+.post-image {
+    width: 100%; aspect-ratio: 1 / 1;
+    display: flex; align-items: center; justify-content: center;
+}
+
+.post-image .initial {
+    font-size: 100px; font-weight: 800; color: #fff;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    letter-spacing: -4px;
+}
+
+.post-actions {
+    display: flex; gap: 16px; padding: 10px 14px 6px;
+}
+
+.action-icon {
+    font-size: 20px; color: var(--gray-text);
+    transition: color 0.2s ease, transform 0.2s ease;
+    user-select: none;
+}
+.action-icon.heart:hover { color: #ED4956; transform: scale(1.15); }
+.action-icon:hover { transform: scale(1.1); }
+
+.post-likes { padding: 2px 14px 4px; font-weight: 600; font-size: 13px; color: var(--white); }
+
+.post-caption {
+    padding: 2px 14px 8px; font-size: 12px; line-height: 1.4;
+    color: var(--gray-text);
+    overflow: hidden; display: -webkit-box;
+    -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+}
+
+.caption-user { font-weight: 600; color: var(--white); }
+
+/* Gradient backgrounds */
+.bg-anime { background: linear-gradient(135deg, #F77737, #E1306C, #833AB4); }
+.bg-jjk { background: linear-gradient(135deg, #833AB4, #E1306C, #405DE6); }
+.bg-simpsons { background: linear-gradient(135deg, #FCAF45, #F77737); }
+.bg-familyguy { background: linear-gradient(135deg, #405DE6, #5851DB, #833AB4); }
+.bg-southpark { background: linear-gradient(135deg, #E1306C, #F77737); }
+.bg-bobs { background: linear-gradient(135deg, #F77737, #FCAF45); }
+.bg-rickmorty { background: linear-gradient(135deg, #5851DB, #405DE6, #2EC4B6); }
+
+/* ---- Back: Stats (Family Guy style) ---- */
+.flip-card-back {
+    background-color: #1e1e1e;
+    transform: rotateY(180deg);
+    padding: 20px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    border: 3px solid var(--green);
+}
+
+.back-name {
+    font-size: 1.2rem; font-weight: 700; color: var(--white);
+    text-transform: uppercase; letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+.back-series {
+    font-size: 0.75rem; text-transform: uppercase;
+    letter-spacing: 2px; color: var(--green); margin-bottom: 8px;
+}
+
+.bio {
+    font-size: 0.78rem; line-height: 1.55; color: #DDDDDD;
+    border-bottom: 2px solid #444; padding-bottom: 10px; margin-bottom: 10px;
+}
+
+.stats { flex: 1; display: flex; flex-direction: column; justify-content: space-around; }
+.stat-row { display: flex; align-items: center; gap: 10px; }
+
+.stat-label {
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px;
+    color: #AAAAAA; width: 90px; flex-shrink: 0; text-align: right;
+    font-weight: 700;
+}
+
+.stat-bar {
+    flex: 1; height: 16px; background-color: #333; border: 1px solid #555;
+    position: relative; border-radius: 2px;
+}
+
+.stat-fill {
+    height: 100%; display: flex; align-items: center; justify-content: flex-end;
+    padding-right: 6px; font-size: 0.65rem; font-weight: 700;
+    color: #FFFFFF; border-radius: 1px;
+}
+
+.strength-fill { background-color: #E8272A; }
+.speed-fill { background-color: #3B5998; }
+.intel-fill { background-color: #2D8C3C; }
+.energy-fill { background-color: #FF8C00; }
+.durability-fill { background-color: #9B59B6; }
+
+/* ---- Now Playing Bar ---- */
+.now-playing-bar {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    height: var(--now-playing-height);
+    background-color: #181818; border-top: 1px solid #282828;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; z-index: 20;
+}
+
+.now-playing-left { display: flex; align-items: center; gap: 12px; width: 240px; flex-shrink: 0; }
+
+.now-playing-avatar {
+    width: 56px; height: 56px; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; font-weight: 700; color: var(--white); flex-shrink: 0;
+}
+
+.now-playing-info { display: flex; flex-direction: column; gap: 2px; }
+.now-playing-name { font-size: 14px; font-weight: 600; color: var(--white); }
+.now-playing-series { font-size: 11px; color: var(--gray-text); }
+
+.now-playing-center { display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1; max-width: 600px; }
+
+.playback-controls { display: flex; align-items: center; gap: 24px; }
+
+.control-btn { color: var(--gray-text); font-size: 14px; transition: color 0.2s ease; }
+.control-btn:hover { color: var(--white); }
+
+.play-btn {
+    width: 36px; height: 36px; background-color: var(--white);
+    color: var(--black); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; padding-left: 2px;
+}
+.play-btn:hover { transform: scale(1.05); color: var(--black); }
+
+.progress-bar { width: 100%; height: 4px; background-color: #535353; border-radius: 2px; overflow: hidden; }
+.progress-fill { width: 35%; height: 100%; background-color: var(--green); border-radius: 2px; }
+.progress-bar:hover .progress-fill { width: 38%; }
+
+.now-playing-right { display: flex; align-items: center; gap: 8px; width: 180px; flex-shrink: 0; justify-content: flex-end; }
+.volume-icon { font-size: 16px; color: var(--gray-text); }
+.volume-bar { width: 100px; height: 4px; background-color: #535353; border-radius: 2px; overflow: hidden; }
+.volume-fill { width: 70%; height: 100%; background-color: var(--white); border-radius: 2px; }
+.volume-bar:hover .volume-fill { background-color: var(--green); }
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #535353; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #727272; }
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+    .header-title { font-size: 36px; }
+    .header-art { width: 140px; height: 140px; }
+    .card-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+}
+
+@media (max-width: 768px) {
+    .sidebar { display: none; }
+    .main-content { margin-left: 0; }
+    .header-title { font-size: 28px; }
+    .header-art { width: 100px; height: 100px; }
+    .header-icon { font-size: 40px; }
+    .card-grid { grid-template-columns: 1fr; }
+    .now-playing-right { display: none; }
+    .now-playing-left { width: auto; }
+}
