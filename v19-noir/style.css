@@ -1,0 +1,389 @@
+/* ===========================
+   V19: Case Files (Film Noir)
+   =========================== */
+
+/* --- Reset & Base --- */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: #f5f5dc;
+    font-family: "Georgia", "Palatino", serif;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* --- Film Grain Overlay --- */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.04;
+    background:
+        repeating-radial-gradient(circle at 17% 32%, #f5f5dc 0px, transparent 1px, transparent 3px),
+        repeating-radial-gradient(circle at 53% 71%, #f5f5dc 0px, transparent 1px, transparent 4px),
+        repeating-radial-gradient(circle at 82% 14%, #f5f5dc 0px, transparent 1px, transparent 3px),
+        repeating-radial-gradient(circle at 34% 88%, #f5f5dc 0px, transparent 1px, transparent 5px),
+        repeating-radial-gradient(circle at 68% 45%, #f5f5dc 0px, transparent 1px, transparent 3px);
+}
+
+/* --- Header --- */
+.page-header {
+    position: relative;
+    background-color: #2a2a2a;
+    padding: 60px 40px 40px;
+    text-align: center;
+    border-bottom: 3px solid #c0a060;
+    overflow: hidden;
+}
+
+/* Venetian blind shadow effect */
+.page-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        165deg,
+        rgba(0, 0, 0, 0.35) 0px,
+        rgba(0, 0, 0, 0.35) 12px,
+        transparent 12px,
+        transparent 28px
+    );
+    z-index: 1;
+}
+
+.page-header > * {
+    position: relative;
+    z-index: 2;
+}
+
+.page-header h1 {
+    font-family: "Georgia", "Palatino", serif;
+    font-style: italic;
+    font-size: 2.8rem;
+    color: #c0a060;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.page-header .subtitle {
+    font-style: italic;
+    font-size: 1rem;
+    color: #888;
+    letter-spacing: 0.15em;
+}
+
+.page-header .classified {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 4px 20px;
+    border: 1px solid #c0a060;
+    color: #c0a060;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+/* --- Close Case File link --- */
+.back-link {
+    display: block;
+    background-color: #222;
+    padding: 12px 40px;
+    border-bottom: 1px solid #333;
+}
+
+.back-link a {
+    color: #c0a060;
+    text-decoration: none;
+    font-style: italic;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    transition: color 0.3s ease;
+}
+
+.back-link a:hover {
+    color: #f5f5dc;
+}
+
+.back-link a::before {
+    content: "\2190 ";
+}
+
+/* --- Main Container --- */
+.case-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+}
+
+/* --- Division Headers --- */
+.division-header {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #c0a060;
+}
+
+.division-header:first-child {
+    margin-top: 0;
+}
+
+.division-header h2 {
+    font-style: italic;
+    font-size: 1.5rem;
+    color: #c0a060;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.division-header .division-sub {
+    font-size: 0.8rem;
+    color: #888;
+    letter-spacing: 0.15em;
+    margin-top: 4px;
+    font-style: italic;
+}
+
+/* --- Case File Card --- */
+.case-file {
+    position: relative;
+    background-color: #2a2a2a;
+    margin-bottom: 30px;
+    padding: 30px 30px 25px;
+    border: 1px solid #333;
+    border-left: 3px solid transparent;
+    transition: background-color 0.3s ease, border-left-color 0.3s ease;
+}
+
+.case-file:nth-child(even) {
+    background-color: #252525;
+}
+
+/* File folder tab */
+.case-file::before {
+    content: attr(data-tab);
+    position: absolute;
+    top: -22px;
+    left: 20px;
+    background-color: #2a2a2a;
+    border: 1px solid #333;
+    border-bottom: none;
+    padding: 3px 16px;
+    font-size: 0.7rem;
+    color: #888;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+.case-file:nth-child(even)::before {
+    background-color: #252525;
+}
+
+/* Hover state */
+.case-file:hover {
+    background-color: #302a20;
+    border-left-color: #c0a060;
+}
+
+.case-file:nth-child(even):hover {
+    background-color: #2d2820;
+    border-left-color: #c0a060;
+}
+
+/* --- Mugshot & Subject Info --- */
+.subject-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.mugshot {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #1a1a1a;
+    border: 5px double #c0a060;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: #c0a060;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.subject-info {
+    flex: 1;
+}
+
+.subject-name {
+    font-style: italic;
+    font-size: 1.4rem;
+    color: #f5f5dc;
+    letter-spacing: 0.12em;
+    margin-bottom: 2px;
+}
+
+.subject-alias {
+    font-size: 0.8rem;
+    color: #888;
+    letter-spacing: 0.1em;
+    font-style: italic;
+}
+
+.subject-alias::before {
+    content: "a.k.a. ";
+    color: #666;
+}
+
+/* --- Case Notes (Bio) --- */
+.case-notes-label {
+    font-size: 0.7rem;
+    color: #888;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-style: italic;
+}
+
+.case-notes {
+    font-size: 0.9rem;
+    color: #ccc;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    padding-left: 15px;
+    border-left: 1px solid #444;
+}
+
+/* --- Evidence (Stats) --- */
+.evidence-label {
+    font-size: 0.7rem;
+    color: #888;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.evidence-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.stat-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.stat-label {
+    flex-shrink: 0;
+    width: 90px;
+    font-size: 0.75rem;
+    color: #888;
+    font-style: italic;
+    text-align: right;
+    letter-spacing: 0.05em;
+}
+
+.stat-bar-bg {
+    flex: 1;
+    height: 6px;
+    background-color: #1a1a1a;
+    border-radius: 1px;
+    position: relative;
+    max-width: 300px;
+}
+
+.stat-bar-fill {
+    height: 100%;
+    background-color: #c0a060;
+    border-radius: 1px;
+    transition: width 0.3s ease;
+}
+
+.stat-value {
+    flex-shrink: 0;
+    width: 30px;
+    font-size: 0.7rem;
+    color: #c0a060;
+    font-style: italic;
+    text-align: left;
+}
+
+/* Stat bar widths */
+.fill-0  { width: 0%; }
+.fill-1  { width: 10%; }
+.fill-2  { width: 20%; }
+.fill-3  { width: 30%; }
+.fill-4  { width: 40%; }
+.fill-5  { width: 50%; }
+.fill-6  { width: 60%; }
+.fill-7  { width: 70%; }
+.fill-8  { width: 80%; }
+.fill-9  { width: 90%; }
+.fill-10 { width: 100%; }
+
+/* --- Footer --- */
+.page-footer {
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 1px solid #333;
+    color: #555;
+    font-size: 0.75rem;
+    font-style: italic;
+    letter-spacing: 0.1em;
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+    .page-header h1 {
+        font-size: 1.6rem;
+        letter-spacing: 0.12em;
+    }
+
+    .case-container {
+        padding: 20px 10px 60px;
+    }
+
+    .case-file {
+        padding: 20px 15px 20px;
+    }
+
+    .subject-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .stat-label {
+        width: 70px;
+        font-size: 0.65rem;
+    }
+
+    .stat-bar-bg {
+        max-width: 200px;
+    }
+}
