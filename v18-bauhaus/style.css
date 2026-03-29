@@ -1,0 +1,375 @@
+/* ============================================
+   v18 — form follows function (bauhaus)
+   mondrian-inspired character showcase
+   html + css only — no js, no external assets
+   ============================================ */
+
+/* --- reset & base --- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --white: #FFFFFF;
+  --black: #000000;
+  --red: #E53935;
+  --blue: #1E88E5;
+  --yellow: #FDD835;
+  --border: 6px solid var(--black);
+  --border-thin: 3px solid var(--black);
+}
+
+body {
+  background-color: var(--white);
+  color: var(--black);
+  font-family: "Arial", "Helvetica", sans-serif;
+  text-transform: lowercase;
+  line-height: 1.4;
+  min-height: 100vh;
+}
+
+/* --- top bar --- */
+.top-bar {
+  border-bottom: var(--border);
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: baseline;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.back-link {
+  color: var(--black);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border: var(--border-thin);
+  padding: 0.4rem 0.8rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.back-link:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.site-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.site-subtitle {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  opacity: 0.6;
+}
+
+/* --- mondrian grid --- */
+.mondrian-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  border-left: var(--border);
+}
+
+.cell {
+  border-right: var(--border);
+  border-bottom: var(--border);
+  min-height: 120px;
+}
+
+/* --- color blocks (decorative) --- */
+.color-block {
+  min-height: 80px;
+}
+
+.color-block.red {
+  background-color: var(--red);
+}
+
+.color-block.blue {
+  background-color: var(--blue);
+}
+
+.color-block.yellow {
+  background-color: var(--yellow);
+}
+
+.color-block.tall {
+  min-height: 160px;
+}
+
+.color-block.wide {
+  grid-column: span 2;
+}
+
+/* --- character cards --- */
+.card {
+  padding: 1.5rem;
+  background-color: var(--white);
+  transition: background-color 0.35s ease, color 0.35s ease;
+  position: relative;
+}
+
+.card:hover {
+  color: var(--white);
+}
+
+.card.anime:hover {
+  background-color: var(--red);
+}
+
+.card.comedy:nth-child(odd):hover {
+  background-color: var(--blue);
+}
+
+.card.comedy:nth-child(even):hover {
+  background-color: var(--black);
+}
+
+.card h2 {
+  font-size: 1.4rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.15rem;
+  line-height: 1.1;
+}
+
+.card .series-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: lowercase;
+  opacity: 0.5;
+  margin-bottom: 0.8rem;
+}
+
+.card:hover .series-tag {
+  opacity: 0.7;
+}
+
+.card .bio {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  max-width: 40ch;
+}
+
+/* --- avatars --- */
+.avatar {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  border: 3px solid var(--black);
+}
+
+.avatar span {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--black);
+  line-height: 1;
+}
+
+/* shapes */
+.avatar.circle {
+  border-radius: 50%;
+}
+
+.avatar.square {
+  border-radius: 0;
+}
+
+.avatar.triangle {
+  width: 0;
+  height: 0;
+  border: none;
+  border-left: 32px solid transparent;
+  border-right: 32px solid transparent;
+  border-bottom: 56px solid var(--red);
+  background: none !important;
+  position: relative;
+}
+
+.avatar.triangle.yellow-bg {
+  border-bottom-color: var(--yellow);
+}
+
+.avatar.triangle.blue-bg {
+  border-bottom-color: var(--blue);
+}
+
+.avatar.triangle.red-bg {
+  border-bottom-color: var(--red);
+}
+
+.avatar.triangle span {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+}
+
+/* color fills */
+.red-bg {
+  background-color: var(--red);
+}
+
+.blue-bg {
+  background-color: var(--blue);
+}
+
+.yellow-bg {
+  background-color: var(--yellow);
+}
+
+/* --- stat bars --- */
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-width: 200px;
+}
+
+.stat-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 10px;
+}
+
+.stat-label {
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  width: 24px;
+  text-align: right;
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+.bar {
+  display: block;
+  height: 3px;
+  background-color: var(--black);
+  transition: background-color 0.35s ease, height 0.2s ease;
+}
+
+.card:hover .bar {
+  background-color: var(--white);
+  height: 4px;
+}
+
+.card:hover .stat-label {
+  opacity: 0.8;
+}
+
+/* --- footer --- */
+.bottom-bar {
+  border-top: var(--border);
+  padding: 1.5rem 2rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  opacity: 0.4;
+}
+
+/* --- responsive --- */
+@media (max-width: 960px) {
+  .mondrian-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+
+  .color-block.wide {
+    grid-column: span 1;
+  }
+
+  .site-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .mondrian-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .color-block.wide {
+    grid-column: span 1;
+  }
+
+  .color-block.tall {
+    min-height: 60px;
+  }
+
+  .color-block {
+    min-height: 40px;
+  }
+}
+
+/* --- subtle animation on load via CSS --- */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fade-up 0.6s ease both;
+}
+
+.card:nth-child(2) { animation-delay: 0.04s; }
+.card:nth-child(3) { animation-delay: 0.08s; }
+.card:nth-child(5) { animation-delay: 0.12s; }
+.card:nth-child(6) { animation-delay: 0.16s; }
+.card:nth-child(8) { animation-delay: 0.20s; }
+.card:nth-child(9) { animation-delay: 0.24s; }
+.card:nth-child(10) { animation-delay: 0.28s; }
+.card:nth-child(11) { animation-delay: 0.32s; }
+.card:nth-child(13) { animation-delay: 0.36s; }
+.card:nth-child(14) { animation-delay: 0.40s; }
+.card:nth-child(16) { animation-delay: 0.44s; }
+.card:nth-child(17) { animation-delay: 0.48s; }
+.card:nth-child(18) { animation-delay: 0.52s; }
+.card:nth-child(19) { animation-delay: 0.56s; }
+.card:nth-child(21) { animation-delay: 0.60s; }
+.card:nth-child(22) { animation-delay: 0.64s; }
+.card:nth-child(24) { animation-delay: 0.68s; }
+.card:nth-child(25) { animation-delay: 0.72s; }
+.card:nth-child(27) { animation-delay: 0.76s; }
+.card:nth-child(28) { animation-delay: 0.80s; }
+.card:nth-child(30) { animation-delay: 0.84s; }
+.card:nth-child(32) { animation-delay: 0.88s; }
+.card:nth-child(33) { animation-delay: 0.92s; }
+
+/* color block subtle entrance */
+@keyframes block-in {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.color-block {
+  animation: block-in 0.5s ease both;
+}
