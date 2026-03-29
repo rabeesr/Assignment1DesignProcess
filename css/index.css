@@ -193,6 +193,71 @@ a {
 .card-v7:hover { border-color: #FF4500; }
 .card-v7 .card-cta { color: #FF4500; }
 
+/* V8 Vaporwave — Hot Pink */
+.card-v8::before { background: linear-gradient(90deg, #FF71CE, #01CDFE, #B967FF); }
+.card-v8:hover { border-color: #FF71CE; }
+.card-v8 .card-cta { color: #FF71CE; }
+
+/* V9 Swiss — Red */
+.card-v9::before { background: #FF0000; }
+.card-v9:hover { border-color: #FF0000; }
+.card-v9 .card-cta { color: #FF0000; }
+
+/* V10 Cyberpunk — Yellow */
+.card-v10::before { background: linear-gradient(90deg, #FCEE09, #00F0FF); }
+.card-v10:hover { border-color: #FCEE09; }
+.card-v10 .card-cta { color: #FCEE09; }
+
+/* V11 Newspaper — Dark Red */
+.card-v11::before { background: #8B0000; }
+.card-v11:hover { border-color: #8B0000; }
+.card-v11 .card-cta { color: #D4A574; }
+
+/* V12 Instagram — Pink Gradient */
+.card-v12::before { background: linear-gradient(90deg, #F77737, #E1306C, #833AB4); }
+.card-v12:hover { border-color: #E1306C; }
+.card-v12 .card-cta { color: #E1306C; }
+
+/* V13 Game Boy — Neon Green */
+.card-v13::before { background: #39FF14; }
+.card-v13:hover { border-color: #39FF14; }
+.card-v13 .card-cta { color: #39FF14; }
+
+/* V14 Spotify — Green */
+.card-v14::before { background: #1DB954; }
+.card-v14:hover { border-color: #1DB954; }
+.card-v14 .card-cta { color: #1DB954; }
+
+/* V15 Ghibli — Forest Green */
+.card-v15::before { background: linear-gradient(90deg, #E8F5E9, #FCE4EC, #E3F2FD); }
+.card-v15:hover { border-color: #2E7D32; }
+.card-v15 .card-cta { color: #2E7D32; }
+
+/* V16 Horror — Blood Red */
+.card-v16::before { background: #CC0000; }
+.card-v16:hover { border-color: #CC0000; }
+.card-v16 .card-cta { color: #CC0000; }
+
+/* V17 Y2K — Magenta */
+.card-v17::before { background: linear-gradient(90deg, #FF00FF, #00FF00, #FFFF00); }
+.card-v17:hover { border-color: #FF00FF; }
+.card-v17 .card-cta { color: #FF00FF; }
+
+/* V18 Bauhaus — Blue */
+.card-v18::before { background: linear-gradient(90deg, #E53935, #1E88E5, #FDD835); }
+.card-v18:hover { border-color: #1E88E5; }
+.card-v18 .card-cta { color: #1E88E5; }
+
+/* V19 Noir — Gold/Sepia */
+.card-v19::before { background: #c0a060; }
+.card-v19:hover { border-color: #c0a060; }
+.card-v19 .card-cta { color: #c0a060; }
+
+/* V20 Steampunk — Brass */
+.card-v20::before { background: linear-gradient(90deg, #CD7F32, #D4A574, #8B6914); }
+.card-v20:hover { border-color: #CD7F32; }
+.card-v20 .card-cta { color: #CD7F32; }
+
 /* ===== Footer ===== */
 footer {
   text-align: center;
@@ -237,3 +302,16 @@ footer {
 .card-v5 { animation-delay: 0.25s; }
 .card-v6 { animation-delay: 0.3s; }
 .card-v7 { animation-delay: 0.35s; }
+.card-v8 { animation-delay: 0.4s; }
+.card-v9 { animation-delay: 0.45s; }
+.card-v10 { animation-delay: 0.5s; }
+.card-v11 { animation-delay: 0.55s; }
+.card-v12 { animation-delay: 0.6s; }
+.card-v13 { animation-delay: 0.65s; }
+.card-v14 { animation-delay: 0.7s; }
+.card-v15 { animation-delay: 0.75s; }
+.card-v16 { animation-delay: 0.8s; }
+.card-v17 { animation-delay: 0.85s; }
+.card-v18 { animation-delay: 0.9s; }
+.card-v19 { animation-delay: 0.95s; }
+.card-v20 { animation-delay: 1.0s; }
