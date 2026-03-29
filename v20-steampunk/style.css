@@ -1,0 +1,482 @@
+/* =============================================
+   V20: The Brass Registry — Steampunk Theme
+   ============================================= */
+
+/* --- Reset & Base --- */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Georgia", "Palatino Linotype", serif;
+    background-color: #1a1208;
+    color: #F5E6C8;
+    line-height: 1.6;
+    min-height: 100vh;
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 40px,
+            rgba(212, 165, 116, 0.03) 40px,
+            rgba(212, 165, 116, 0.03) 41px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 40px,
+            rgba(212, 165, 116, 0.03) 40px,
+            rgba(212, 165, 116, 0.03) 41px
+        );
+}
+
+/* --- Back Link --- */
+.back-link {
+    display: inline-block;
+    margin: 1.5rem 2rem;
+    padding: 0.6rem 1.4rem;
+    color: #D4A574;
+    text-decoration: none;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    border: 2px solid #8B6914;
+    border-radius: 4px;
+    background: linear-gradient(135deg, #2C1810 0%, #1a1208 100%);
+    transition: all 0.3s ease;
+    font-variant: small-caps;
+    box-shadow:
+        inset 1px 1px 0 rgba(212, 165, 116, 0.15),
+        inset -1px -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.back-link:hover {
+    background: linear-gradient(135deg, #3a2418 0%, #2C1810 100%);
+    color: #F5E6C8;
+    border-color: #D4A574;
+    box-shadow:
+        0 0 12px rgba(212, 165, 116, 0.3),
+        inset 1px 1px 0 rgba(212, 165, 116, 0.2),
+        inset -1px -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* --- Header --- */
+.registry-header {
+    text-align: center;
+    padding: 3rem 2rem 2.5rem;
+    background: linear-gradient(180deg, #2C1810 0%, #1a1208 100%);
+    border-bottom: 3px solid #8B6914;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        inset 0 -2px 0 #D4A574,
+        0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.registry-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #8B6914, #D4A574, #CD7F32, #D4A574, #8B6914);
+}
+
+.gear-left,
+.gear-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4rem;
+    color: rgba(139, 105, 20, 0.25);
+    animation: rotate 20s linear infinite;
+}
+
+.gear-left {
+    left: 2rem;
+}
+
+.gear-right {
+    right: 2rem;
+    animation-direction: reverse;
+}
+
+@keyframes rotate {
+    from { transform: translateY(-50%) rotate(0deg); }
+    to { transform: translateY(-50%) rotate(360deg); }
+}
+
+.header-subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 0.25em;
+    color: #8B6914;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.registry-header h1 {
+    font-size: 3rem;
+    font-variant: small-caps;
+    letter-spacing: 0.15em;
+    color: #D4A574;
+    text-shadow:
+        0 0 20px rgba(212, 165, 116, 0.3),
+        0 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 0.3rem;
+    background: linear-gradient(180deg, #F5E6C8 0%, #D4A574 40%, #8B6914 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.header-tagline {
+    font-size: 1.05rem;
+    font-style: italic;
+    color: #D4A574;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+}
+
+.header-ornament {
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    color: #8B6914;
+    letter-spacing: 0.5em;
+}
+
+/* --- Main --- */
+.registry-main {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+}
+
+/* --- Section Dividers --- */
+.section-divider {
+    text-align: center;
+    margin: 3rem 0 2rem;
+    padding: 1.5rem 0;
+    position: relative;
+}
+
+.section-divider::before,
+.section-divider::after {
+    content: "";
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #8B6914, #D4A574, #8B6914, transparent);
+}
+
+.section-divider::before {
+    top: 0;
+}
+
+.section-divider::after {
+    bottom: 0;
+}
+
+.section-divider h2 {
+    font-size: 1.8rem;
+    font-variant: small-caps;
+    letter-spacing: 0.2em;
+    color: #D4A574;
+    margin: 0.5rem 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.divider-ornament {
+    display: block;
+    font-size: 1rem;
+    color: #8B6914;
+    letter-spacing: 0.3em;
+}
+
+/* --- Series Titles --- */
+.series-title {
+    text-align: center;
+    font-size: 1.2rem;
+    font-variant: small-caps;
+    letter-spacing: 0.15em;
+    color: #CD7F32;
+    margin: 2rem 0 1.2rem;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.series-title::before {
+    content: "";
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(205, 127, 50, 0.4), transparent);
+}
+
+/* --- Card Grid --- */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+/* --- Brass Card --- */
+.brass-card {
+    background: linear-gradient(145deg, #2C1810 0%, #231510 50%, #1a1208 100%);
+    border: 2px solid #8B6914;
+    border-radius: 6px;
+    position: relative;
+    padding: 3px;
+    transition: all 0.4s ease;
+    box-shadow:
+        inset 2px 2px 0 rgba(212, 165, 116, 0.1),
+        inset -2px -2px 0 rgba(0, 0, 0, 0.3),
+        0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.card-inner {
+    border: 1px solid rgba(139, 105, 20, 0.4);
+    border-radius: 4px;
+    padding: 1.5rem;
+    /* Embossed texture */
+    box-shadow:
+        inset 0 1px 0 rgba(212, 165, 116, 0.08),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* Beveled border effect: lighter top-left, darker bottom-right */
+.brass-card {
+    border-top-color: #D4A574;
+    border-left-color: #D4A574;
+    border-bottom-color: #5a4210;
+    border-right-color: #5a4210;
+}
+
+.brass-card:hover {
+    box-shadow:
+        0 0 25px rgba(212, 165, 116, 0.25),
+        0 0 50px rgba(205, 127, 50, 0.1),
+        inset 2px 2px 0 rgba(212, 165, 116, 0.15),
+        inset -2px -2px 0 rgba(0, 0, 0, 0.3),
+        0 4px 16px rgba(0, 0, 0, 0.5);
+    border-top-color: #F5E6C8;
+    border-left-color: #F5E6C8;
+    transform: translateY(-2px);
+}
+
+/* --- Porthole Avatar --- */
+.porthole {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #D4A574, #8B6914, #CD7F32);
+    padding: 4px;
+    box-shadow:
+        0 0 0 3px #1a1208,
+        0 0 0 5px #8B6914,
+        0 0 0 7px rgba(212, 165, 116, 0.3),
+        inset 0 2px 4px rgba(0, 0, 0, 0.3),
+        0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.porthole-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, #2C1810, #1a1208);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #D4A574;
+    font-variant: small-caps;
+    text-shadow: 0 0 10px rgba(212, 165, 116, 0.3);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* --- Card Name --- */
+.card-name {
+    text-align: center;
+    font-size: 1.15rem;
+    font-variant: small-caps;
+    letter-spacing: 0.12em;
+    color: #D4A574;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid rgba(139, 105, 20, 0.3);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Card Bio --- */
+.card-bio {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: #c4b496;
+    margin-bottom: 1.2rem;
+    font-style: italic;
+    text-align: center;
+    opacity: 0.85;
+}
+
+/* --- Gauges --- */
+.gauges {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.gauge-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.gauge-label {
+    font-size: 0.7rem;
+    font-variant: small-caps;
+    letter-spacing: 0.1em;
+    color: #8B6914;
+    width: 32px;
+    text-align: right;
+    flex-shrink: 0;
+    font-weight: bold;
+}
+
+.gauge-track {
+    flex: 1;
+    height: 12px;
+    background: #1a1208;
+    border-radius: 6px;
+    border: 1px solid rgba(139, 105, 20, 0.3);
+    overflow: hidden;
+    box-shadow:
+        inset 0 1px 3px rgba(0, 0, 0, 0.5),
+        0 1px 0 rgba(212, 165, 116, 0.05);
+    position: relative;
+}
+
+.gauge-fill {
+    height: 100%;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #CD7F32, #D4A574, #8B6914);
+    box-shadow:
+        inset 0 1px 0 rgba(245, 230, 200, 0.3),
+        0 0 6px rgba(205, 127, 50, 0.3);
+    transition: width 0.6s ease;
+    position: relative;
+}
+
+.gauge-fill::after {
+    content: "";
+    position: absolute;
+    top: 1px;
+    left: 2px;
+    right: 2px;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(245, 230, 200, 0.2), rgba(245, 230, 200, 0.05));
+    border-radius: 3px;
+}
+
+.gauge-val {
+    font-size: 0.75rem;
+    color: #D4A574;
+    width: 20px;
+    text-align: left;
+    flex-shrink: 0;
+    font-weight: bold;
+}
+
+/* --- Footer --- */
+.registry-footer {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    border-top: 3px solid #8B6914;
+    background: linear-gradient(0deg, #2C1810 0%, #1a1208 100%);
+    position: relative;
+    box-shadow: inset 0 2px 0 #D4A574;
+}
+
+.footer-ornament {
+    font-size: 1.2rem;
+    color: #8B6914;
+    letter-spacing: 0.5em;
+    margin-bottom: 0.8rem;
+}
+
+.registry-footer p {
+    font-variant: small-caps;
+    letter-spacing: 0.1em;
+    color: #D4A574;
+    font-size: 0.9rem;
+}
+
+.footer-small {
+    margin-top: 0.4rem;
+    font-size: 0.75rem !important;
+    opacity: 0.6;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+    .card-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.2rem;
+    }
+
+    .registry-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .gear-left,
+    .gear-right {
+        font-size: 2.5rem;
+    }
+
+    .gear-left {
+        left: 0.5rem;
+    }
+
+    .gear-right {
+        right: 0.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .registry-header h1 {
+        font-size: 1.8rem;
+        letter-spacing: 0.08em;
+    }
+
+    .gear-left,
+    .gear-right {
+        display: none;
+    }
+
+    .registry-main {
+        padding: 1.5rem 1rem 3rem;
+    }
+
+    .section-divider h2 {
+        font-size: 1.4rem;
+    }
+
+    .back-link {
+        margin: 1rem;
+    }
+}
