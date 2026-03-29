@@ -1,0 +1,260 @@
+/* ============================================
+   V15: Spirited Gallery — Ghibli/Watercolor
+   ============================================ */
+
+/* --- Keyframes --- */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes bgShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- Base Reset & Body --- */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    color: #5D4037;
+    line-height: 1.8;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #E8F5E9, #FFF3E0, #E3F2FD, #FCE4EC, #F3E5F5, #E8F5E9);
+    background-size: 400% 400%;
+    animation: bgShift 30s ease infinite;
+    padding: 2rem 1rem 4rem;
+}
+
+/* --- Back Link --- */
+.back-link {
+    display: inline-block;
+    color: #2E7D32;
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 0.5rem 1.2rem;
+    border: 1px solid #2E7D32;
+    border-radius: 24px;
+    margin-bottom: 1.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.back-link:hover {
+    background-color: #2E7D32;
+    color: #fff;
+}
+
+/* --- Page Header --- */
+.page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 1rem 0 2rem;
+}
+
+.page-title {
+    font-size: 2.8rem;
+    font-weight: normal;
+    color: #5D4037;
+    letter-spacing: 0.04em;
+    animation: float 4s ease-in-out infinite;
+}
+
+.page-subtitle {
+    font-size: 1.1rem;
+    color: #8D6E63;
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
+/* --- Gallery Main --- */
+.gallery {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Series Sections --- */
+.series-section {
+    margin-bottom: 3.5rem;
+}
+
+.series-heading {
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: #2E7D32;
+    text-align: center;
+    margin-bottom: 1.8rem;
+    position: relative;
+    letter-spacing: 0.06em;
+}
+
+.series-heading::before,
+.series-heading::after {
+    content: "";
+    display: inline-block;
+    width: 60px;
+    height: 1px;
+    background-color: #A5D6A7;
+    vertical-align: middle;
+    margin: 0 1rem;
+}
+
+/* --- Card Grid --- */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    align-items: start;
+}
+
+/* --- Cards --- */
+.card {
+    border-radius: 16px;
+    padding: 2rem 1.8rem;
+    box-shadow: 0 8px 32px rgba(93, 64, 55, 0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(93, 64, 55, 0.12);
+}
+
+/* Pastel card backgrounds */
+.pastel-1 { background-color: #E8F5E9; }
+.pastel-2 { background-color: #FFF3E0; }
+.pastel-3 { background-color: #E3F2FD; }
+.pastel-4 { background-color: #FCE4EC; }
+.pastel-5 { background-color: #F3E5F5; }
+.pastel-6 { background-color: #FFF8E1; }
+
+/* --- Avatar --- */
+.avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.2rem;
+}
+
+.initial {
+    font-size: 1.8rem;
+    color: #5D4037;
+    font-weight: normal;
+}
+
+/* Gradient watercolor blobs */
+.gradient-1 {
+    background: radial-gradient(circle at 30% 40%, #A5D6A7, #C8E6C9 60%, #E8F5E9);
+}
+.gradient-2 {
+    background: radial-gradient(circle at 60% 30%, #FFCC80, #FFE0B2 60%, #FFF3E0);
+}
+.gradient-3 {
+    background: radial-gradient(circle at 40% 60%, #90CAF9, #BBDEFB 60%, #E3F2FD);
+}
+.gradient-4 {
+    background: radial-gradient(circle at 50% 30%, #F48FB1, #F8BBD0 60%, #FCE4EC);
+}
+.gradient-5 {
+    background: radial-gradient(circle at 35% 50%, #CE93D8, #E1BEE7 60%, #F3E5F5);
+}
+.gradient-6 {
+    background: radial-gradient(circle at 55% 40%, #FFD54F, #FFECB3 60%, #FFF8E1);
+}
+
+/* --- Card Name --- */
+.card-name {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: normal;
+    color: #5D4037;
+    margin-bottom: 1rem;
+    letter-spacing: 0.02em;
+}
+
+/* --- Stats --- */
+.stats {
+    margin-bottom: 1.2rem;
+}
+
+.stat-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.35rem;
+}
+
+.stat-label {
+    font-size: 0.82rem;
+    color: #8D6E63;
+    min-width: 90px;
+}
+
+.rating {
+    display: flex;
+    gap: 4px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot.filled {
+    background-color: #2E7D32;
+}
+
+.dot.empty {
+    background-color: #D7CCC8;
+}
+
+/* --- Bio --- */
+.bio {
+    font-size: 0.9rem;
+    color: #6D4C41;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+/* --- Footer --- */
+.page-footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem 0;
+    color: #A1887F;
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 720px) {
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 1.5rem 1.3rem;
+    }
+
+    .series-heading::before,
+    .series-heading::after {
+        width: 30px;
+    }
+}
