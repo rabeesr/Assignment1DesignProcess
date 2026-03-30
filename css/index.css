@@ -258,6 +258,31 @@ a {
 .card-v20:hover { border-color: #CD7F32; }
 .card-v20 .card-cta { color: #CD7F32; }
 
+/* V21 Spotify Flip — Green/Pink Gradient */
+.card-v21::before { background: linear-gradient(90deg, #1DB954, #E1306C); }
+.card-v21:hover { border-color: #1DB954; }
+.card-v21 .card-cta { color: #1DB954; }
+
+/* V22 Spirited Flip — Ghibli Pastel */
+.card-v22::before { background: linear-gradient(90deg, #A5D6A7, #F48FB1, #90CAF9); }
+.card-v22:hover { border-color: #2E7D32; }
+.card-v22 .card-cta { color: #2E7D32; }
+
+/* V23 Community — Ghibli + Reddit Orange */
+.card-v23::before { background: linear-gradient(90deg, #2E7D32, #FF4500); }
+.card-v23:hover { border-color: #FF4500; }
+.card-v23 .card-cta { color: #FF4500; }
+
+/* V24 Helvetica — Swiss Red */
+.card-v24::before { background: #FF0000; }
+.card-v24:hover { border-color: #FF0000; }
+.card-v24 .card-cta { color: #FF0000; }
+
+/* V25 Definitive — Gold */
+.card-v25::before { background: linear-gradient(90deg, #F5C518, #e94560, #F5C518); }
+.card-v25:hover { border-color: #F5C518; }
+.card-v25 .card-cta { color: #F5C518; }
+
 /* ===== Footer ===== */
 footer {
   text-align: center;
@@ -315,3 +340,8 @@ footer {
 .card-v18 { animation-delay: 0.9s; }
 .card-v19 { animation-delay: 0.95s; }
 .card-v20 { animation-delay: 1.0s; }
+.card-v21 { animation-delay: 1.05s; }
+.card-v22 { animation-delay: 1.1s; }
+.card-v23 { animation-delay: 1.15s; }
+.card-v24 { animation-delay: 1.2s; }
+.card-v25 { animation-delay: 1.25s; }
